@@ -47,7 +47,7 @@ namespace ilkCore
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            
 
             app.UseMvc(routes =>
             {
@@ -55,6 +55,7 @@ namespace ilkCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseCookiePolicy();
         }
     }
 }
