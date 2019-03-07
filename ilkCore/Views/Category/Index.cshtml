@@ -1,0 +1,41 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "KAtegori - Index";
+}
+<a asp-action="Add" asp-controller="Category" class="btn btn-success">Yeni Kategori Ekle</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col md col-lg-offset-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategoryi Adi</th>
+                        <th>Ürün Sayısı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        var item = Model[i];
+                        <tr>
+                            <th scope="row">@(i+1)</th>
+                            <th>@item.CategoryName</th>
+                            <th>@item.Products.Count</th>
+                            <td>
+                                <a asp-action="Edit" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-info">
+                                    Düzenle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
