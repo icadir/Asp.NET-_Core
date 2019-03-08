@@ -5,7 +5,11 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ders1", "Ders1", "{6EB9BB58-B0A8-46F6-B154-B2267E8FBFAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ilkCore", "ilkCore\ilkCore.csproj", "{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ilkCore", "ilkCore\ilkCore.csproj", "{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ders2", "Ders2", "{344F1EB4-DCE5-4175-8E95-625E3A4D267A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreIdentity", "CoreIdentity\CoreIdentity.csproj", "{B5B0C16F-9061-4F06-BBC4-D37CD49E0122}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B0C16F-9061-4F06-BBC4-D37CD49E0122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B0C16F-9061-4F06-BBC4-D37CD49E0122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B0C16F-9061-4F06-BBC4-D37CD49E0122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B0C16F-9061-4F06-BBC4-D37CD49E0122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A55DA76-EB5B-4DE9-9B20-9D310CC7CD4B} = {6EB9BB58-B0A8-46F6-B154-B2267E8FBFAE}
+		{B5B0C16F-9061-4F06-BBC4-D37CD49E0122} = {344F1EB4-DCE5-4175-8E95-625E3A4D267A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4B787DC-DF93-40D9-8151-1EAE31ECF7B2}
