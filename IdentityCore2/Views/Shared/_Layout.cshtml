@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using IdentityCore.Models.IdentityModels
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - IdentityCore2</title>
+    <title>@ViewData["Title"] - IdentityCore</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">IdentityCore2</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">IdentityCore</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -45,7 +50,20 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - IdentityCore2</p>
+            <p>&copy; 2019 - IdentityCore</p>
+            @if (Context.User.IsInRole("Admin"))
+            {
+                <h2>Admin</h2>
+            }
+            else if (Context.User.IsInRole("User"))
+            {
+                <h2>User</h2>
+            }
+            else
+            {
+
+                <h2>Anonym</h2>
+            }
         </footer>
     </div>
 

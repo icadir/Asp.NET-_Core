@@ -38,6 +38,7 @@ namespace IdentityCore2.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -54,6 +55,15 @@ namespace IdentityCore2.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await CreateRoles();
+                if (_userManager.Users.Count() == 1)
+                {
+                    await _userManager.AddToRoleAsync(user, IdentityRoles.Admin.ToString());
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(user, IdentityRoles.User.ToString());
+                }
                 return RedirectToAction(nameof(Login));
             }
             else
@@ -95,6 +105,20 @@ namespace IdentityCore2.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        private async Task CreateRoles()
+        {
+            var roleNames = Enum.GetNames(typeof(IdentityRoles));
+            foreach (var roleName in roleNames)
+            {
+                if (!_roleManager.RoleExistsAsync(roleName).Result)
+                {
+                    await _roleManager.CreateAsync(new ApplicationRole()
+                    {
+                        Name = roleName
+                    });
+                }
+            }
         }
     }
 }
