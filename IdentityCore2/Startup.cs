@@ -39,9 +39,8 @@ namespace IdentityCore2
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")))
                 .AddAuthorization();
-
-            services.AddDefaultIdentity<ApplicationUser>()
-                .AddRoles<ApplicationRole>()
+            //hem user hem role yönetimi için eklenmeli.
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -70,7 +69,7 @@ namespace IdentityCore2
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-
+                //hatalı girişlerde login yapılınca girilen role olarak yapılan hatalarda yönelndirmeler.
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/Login";
                 options.SlidingExpiration = true;
